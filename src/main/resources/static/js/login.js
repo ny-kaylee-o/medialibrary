@@ -11,9 +11,7 @@ async function login() {
     const text = await response.text();
 
     if (text === 'success') {
-        localStorage.setItem('loggedIn', 'true');
-        window.location.href = '/index.html';
-    } else {
-        document.getElementById('error').innerText = 'Invalid username or password';
+        sessionStorage.setItem('loggedIn', 'true');
+        window.location.href = '/settings.html';
     }
 }

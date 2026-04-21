@@ -1,8 +1,10 @@
-if (!localStorage.getItem('loggedIn')) {
-    window.location.href = '/login.html';
+if (window.location.pathname === '/settings.html') {
+    if (!sessionStorage.getItem('loggedIn')) {
+        window.location.href = '/login.html';
+    }
 }
 
 function logout() {
-    localStorage.removeItem('loggedIn');
-    window.location.href = '/login.html';
+    sessionStorage.removeItem('loggedIn');
+    window.location.href = '/index.html';
 }
