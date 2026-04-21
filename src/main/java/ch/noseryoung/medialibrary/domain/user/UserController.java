@@ -13,9 +13,9 @@ public class UserController {
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
-        User found = userService.findByUsername(user.getUsername(), user.getPassword());
-        if (found != null) {
-            return ResponseEntity.ok(found.getRole());
+        boolean success = userService.login(user.getUsername(), user.getPassword());
+        if (success) {
+            return ResponseEntity.ok("success");
         } else {
             return ResponseEntity.status(401).body("invalid");
         }

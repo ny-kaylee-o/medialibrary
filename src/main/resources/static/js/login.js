@@ -8,11 +8,10 @@ async function login() {
         body: JSON.stringify({ username, password })
     });
 
-    const role = await response.text();
+    const text = await response.text();
 
-    if (response.ok) {
-        localStorage.setItem('role', role);
-        localStorage.setItem('username', username);
+    if (text === 'success') {
+        localStorage.setItem('loggedIn', 'true');
         window.location.href = '/index.html';
     } else {
         document.getElementById('error').innerText = 'Invalid username or password';

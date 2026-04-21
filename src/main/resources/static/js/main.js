@@ -1,18 +1,8 @@
-const role = localStorage.getItem('role');
-const username = localStorage.getItem('username');
-
-if (!role) {
+if (!localStorage.getItem('loggedIn')) {
     window.location.href = '/login.html';
 }
 
-document.getElementById('username').innerText = username;
-
-if (role === 'ADMIN') {
-    document.getElementById('settings-link').style.display = 'inline';
-}
-
 function logout() {
-    localStorage.removeItem('role');
-    localStorage.removeItem('username');
+    localStorage.removeItem('loggedIn');
     window.location.href = '/login.html';
 }
