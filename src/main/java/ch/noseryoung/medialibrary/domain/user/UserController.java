@@ -5,18 +5,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/v1/users")
+@RequestMapping("/api/users")
 public class UserController {
+
     @Autowired
     private UserService userService;
 
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody User user) {
-        boolean success = userService.login(user.getUsername(), user.getPassword());
-        if (success) {
-            return ResponseEntity.ok("login successful");
+        User found = userService.findByUsername(user.getUsername(), user.getPassword());
+        if (found != null) {
+            return ResponseEntity.ok(found.getRole());
         } else {
-            return ResponseEntity.status(401).body("login invalid");
+            return ResponseEntity.status(401).body("invalid");
         }
     }
 }

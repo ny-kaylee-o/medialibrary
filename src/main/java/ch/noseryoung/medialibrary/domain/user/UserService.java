@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
 
@@ -12,4 +13,13 @@ public class UserService {
         User user = userRepository.findByUsername(username);
         return user != null && user.getPassword().equals(password);
     }
+
+    public User findByUsername(String username, String password) {
+        User user = userRepository.findByUsername(username);
+        if (user != null && user.getPassword().equals(password)) {
+            return user;
+        }
+        return null;
+    }
+
 }

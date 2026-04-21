@@ -1,13 +1,18 @@
-async function login() {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
+const role = localStorage.getItem('role');
+const username = localStorage.getItem('username');
 
-    const response = await fetch('/api/v1/users/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password })
-    });
+if (!role) {
+    window.location.href = '/login.html';
+}
 
-    const text = await response.text();
-    document.getElementById('result').innerText = text;
+document.getElementById('username').innerText = username;
+
+if (role === 'ADMIN') {
+    document.getElementById('settings-link').style.display = 'inline';
+}
+
+function logout() {
+    localStorage.removeItem('role');
+    localStorage.removeItem('username');
+    window.location.href = '/login.html';
 }
