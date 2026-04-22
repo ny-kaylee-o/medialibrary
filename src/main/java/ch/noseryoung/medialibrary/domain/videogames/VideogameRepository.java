@@ -1,4 +1,6 @@
 package ch.noseryoung.medialibrary.domain.videogames;
 
-public class VideogameRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface VideogameRepository extends JpaRepository<Videogame, Long> {
 }
