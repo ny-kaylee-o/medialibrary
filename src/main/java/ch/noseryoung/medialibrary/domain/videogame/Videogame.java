@@ -1,4 +1,4 @@
-package ch.noseryoung.medialibrary.domain.videogames;
+package ch.noseryoung.medialibrary.domain.videogame;
 
 import jakarta.persistence.*;
 import lombok.*;

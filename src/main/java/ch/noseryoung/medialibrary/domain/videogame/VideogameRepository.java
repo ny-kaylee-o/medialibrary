@@ -1,4 +1,4 @@
-package ch.noseryoung.medialibrary.domain.videogames;
+package ch.noseryoung.medialibrary.domain.videogame;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package ch.noseryoung.medialibrary.domain.videogames;
+package ch.noseryoung.medialibrary.domain.videogame;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
